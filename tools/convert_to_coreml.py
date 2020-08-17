@@ -59,7 +59,6 @@ from coremltools.models.neural_network import  flexible_shape_utils
 # flexible_shape_utils.update_image_size_range(spec, feature_name=input_tensor, size_range=img_size_ranges)
 
 
-
 spec = coremltools.utils.convert_neural_network_spec_weights_to_fp16(spec)
 centernet_model_re = coremltools.models.MLModel(spec)
 

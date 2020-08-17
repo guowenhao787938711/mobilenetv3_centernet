@@ -671,16 +671,12 @@ class DsfdDataIter():
                 image = image.astype(np.uint8)
                 boxes = np.concatenate([boxes_, klass_], axis=1)
 
-
-
-
             if boxes.shape[0] == 0 or np.sum(image) == 0:
                 boxes_ = np.array([[0, 0, -1, -1]])
                 klass_ = np.array([0])
             else:
                 boxes_ = np.array(boxes[:, 0:4], dtype=np.float32)
                 klass_ = np.array(boxes[:, 4], dtype=np.int64)
-
 
         except:
             logger.warn('there is an err with %s' % fname)

@@ -31,7 +31,7 @@ config.TRAIN.lr_decay_every_step = [int(x//config.TRAIN.num_gpu) for x  in confi
 config.TRAIN.lr_decay='step'
 
 config.TRAIN.opt='adam'
-config.TRAIN.weight_decay_factor = 1.e-5                  ##l2 regular
+config.TRAIN.weight_decay_factor = 1.e-3                  ##l2 regular
 config.TRAIN.vis=False                                    ##check data flag
 config.TRAIN.mix_precision=False
 
@@ -59,7 +59,7 @@ config.DATA.scales=(320,640)
 config.DATA.use_int8_data=True
 config.DATA.use_int8_enlarge=255.           ### use uint8 for heatmap generate for less memory acc, to speed up
 config.DATA.max_objs=128
-config.DATA.cracy_crop=0.3
+config.DATA.cracy_crop=0.0
 config.DATA.alpha=0.54
 config.DATA.beta=0.54
 ##mobilenetv3 as basemodel
@@ -68,14 +68,14 @@ config.MODEL.continue_train=False          ### revover from a trained model
 config.MODEL.model_path = './model/'  # save directory
 config.MODEL.net_structure='MobilenetV3'
 config.MODEL.size=0.75
-config.MODEL.pretrained_model='./v3-large_224_0.75_float/ema/model-220000'
+config.MODEL.pretrained_model=None#'./v3-large_224_0.75_float/ema/model-220000'
 config.MODEL.task='mscoco'
 config.MODEL.min_overlap=0.7
 config.MODEL.max_box= 100
 
 config.MODEL.global_stride=4
-config.MODEL.head_dims=[256,192,128]
-config.MODEL.prehead_dims=[128,48]   ##no pre head
+config.MODEL.head_dims=[48,48,48]
+config.MODEL.prehead_dims=[48,48]   ##no pre head
 
 
 config.MODEL.deployee= False    ### tensorflow, mnn, coreml

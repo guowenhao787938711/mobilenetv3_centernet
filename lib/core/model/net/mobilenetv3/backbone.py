@@ -23,7 +23,7 @@ def mobilenetv3_large_detection(image,is_training=True):
             print('mobile backbone output:',k,v)
 
         extern_conv = slim.conv2d(_,
-                                  480,
+                                  256,
                                   [1, 1],
                                   stride=1,
                                   padding='SAME',
